@@ -116,11 +116,23 @@ public class GameBoardController extends Thread {
 			score.setText(String.valueOf(sc));
 		}
 		else if ((event.getSource() == fire) && (count == 1) && (mCount == 0)) {
-			num1 = GridPane.getColumnIndex(gp.getMc());
-			num2 = GridPane.getRowIndex(gp.getMc());
-			gp.spaceMissle();
-			boardGrid.add(gp.getMissle(), num1+1, num2);
-			mCount = 1;
+			enCount = gp.getRc().size();
+			if ((enCount > 0) && (totmCount < enCount)) {
+				try {
+					Parent root = FXMLLoader.load(getClass().getResource("../view/leaderBoard.fxml"));
+					Main.stage.setScene(new Scene(root, 800, 800));
+					Main.stage.show();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			else {
+				num1 = GridPane.getColumnIndex(gp.getMc());
+				num2 = GridPane.getRowIndex(gp.getMc());
+				gp.spaceMissle();
+				boardGrid.add(gp.getMissle(), num1+1, num2);
+				mCount = 1;
+			}
 		}
 		else if ((event.getSource() == attack) && (count == 1) && (mCount == 1)) {
 			num1 = GridPane.getColumnIndex(gp.getMissle());
