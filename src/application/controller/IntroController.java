@@ -55,7 +55,7 @@ public class IntroController implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		if (event.getSource() == Start) { //checks to see if the user clicks the home button
 			try {
-				Parent root = FXMLLoader.load(getClass().getResource("../view/GameBoard.fxml"));
+				Parent root = FXMLLoader.load(getClass().getResource("../view/GameRules.fxml"));
 				Main.stage.setScene(new Scene(root, 800, 800));
 				Main.stage.show();
 			} catch(Exception e) {
