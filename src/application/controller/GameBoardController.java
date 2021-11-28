@@ -8,24 +8,30 @@ import application.model.GamePiece;
 import application.model.GameStats;
 import javafx.scene.shape.*;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 //import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import java.util.Random;
-import java.lang.Thread;
+import java.util.ResourceBundle;
+import java.io.File;
+import java.net.URL;
 
 /**
  * @author aidanthomas
  *
  */
-public class GameBoardController extends Thread {
+public class GameBoardController implements EventHandler<ActionEvent>, Initializable{
 	Color color;
 	int enCount = 0;
 	int mCount = 0;
@@ -81,7 +87,11 @@ public class GameBoardController extends Thread {
 	@FXML
 	private Label enemyCount;
 	
-	public void handle1(ActionEvent event) {
+	private File file;
+	private Media media;
+	private MediaPlayer mediaPlayer;
+	
+	public void handle(ActionEvent event) {
 		Random rand = new Random();
 		int num1;
 		int num2;
@@ -298,5 +308,15 @@ public class GameBoardController extends Thread {
 				GridPane.setRowIndex(gp.getMc(), num2+1);
 			}
 		}
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		file = new File("data/bensound-endlessmotion.mp3");
+		media = new Media(file.toURI().toString());
+		mediaPlayer = new MediaPlayer(media);
+		//mp3.setMediaPlayer(mediaPlayer);
+		mediaPlayer.play();
 	}
 }
