@@ -78,6 +78,9 @@ public class GameBoardController extends Thread {
 	@FXML
 	private Label level;
 	
+	@FXML
+	private Label enemyCount;
+	
 	public void handle1(ActionEvent event) {
 		Random rand = new Random();
 		int num1;
@@ -111,15 +114,15 @@ public class GameBoardController extends Thread {
 			missleCount.setText(String.valueOf(totmCount));
 			level.setText(String.valueOf(lvl));
 			score.setText(String.valueOf(sc));
+			enemyCount.setText(String.valueOf(gp.getRc().size()));
 		}
 		else if ((event.getSource() == fire) && (count == 1) && (mCount == 0)) {
 			enCount = gp.getRc().size();
 			if ((enCount > 0) && (totmCount < enCount)) {
-				GameStats.setGS(lvl, sc, dCount);
+				GameStats.setGS(lvl-1, sc, dCount);
 				lvl = 1;
 				sc = 0;
 				dCount = 0;
-				
 				try {
 					Parent root = FXMLLoader.load(getClass().getResource("../view/leaderBoard.fxml"));
 					Main.stage.setScene(new Scene(root, 800, 800));
@@ -133,6 +136,7 @@ public class GameBoardController extends Thread {
 				num2 = GridPane.getRowIndex(gp.getMc());
 				gp.spaceMissle();
 				boardGrid.add(gp.getMissle(), num1+1, num2);
+				num1 = GridPane.getColumnIndex(gp.getMissle());
 				mCount = 1;
 			}
 		}
@@ -155,6 +159,7 @@ public class GameBoardController extends Thread {
 						score.setText(String.valueOf(sc));
 						totmCount -= 1;
 						missleCount.setText(String.valueOf(totmCount));
+						enemyCount.setText(String.valueOf(gp.getRc().size()));
 						dCount += 1;
 						if ((enCount == 0) && (totmCount > 0)) {
 							lvl += 1;
@@ -223,6 +228,7 @@ public class GameBoardController extends Thread {
 						score.setText(String.valueOf(sc));
 						totmCount -= 1;
 						missleCount.setText(String.valueOf(totmCount));
+						enemyCount.setText(String.valueOf(gp.getRc().size()));
 						if (enCount == 0 && totmCount > 0) {
 							lvl += 1;
 							level.setText(String.valueOf(lvl));
