@@ -140,12 +140,12 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" layoutX="450.0" layoutY="676.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
             <Button fx:id="fire" layoutX="460.0" layoutY="688.0" mnemonicParsing="false" onAction="#handle1" prefHeight="28.0" prefWidth="28.0" style="-fx-background-radius: 25; -fx-background-color: red;" text="B" textFill="WHITE" />
             <Button fx:id="attack" layoutX="515.0" layoutY="688.0" mnemonicParsing="false" onAction="#handle1" style="-fx-background-radius: 25; -fx-background-color: red;" text="A" textFill="WHITE" />
-            <Label layoutX="610.0" layoutY="670.0" text="Missles:" textFill="WHITE">
+            <Label layoutX="610.0" layoutY="673.0" text="Missles:" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="missleCount" layoutX="700.0" layoutY="672.0" textFill="WHITE">
+            <Label fx:id="missleCount" layoutX="700.0" layoutY="675.0" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>

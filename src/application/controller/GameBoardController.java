@@ -93,11 +93,9 @@ public class GameBoardController extends Thread {
 		}
 		else if ((event.getSource() == startGame) && (count < 1)) {
 			gp.GP();
-			System.out.println(boardGrid.getColumnCount() + "," + boardGrid.getRowCount());
 			num1 = rand.nextInt(17);
 			num2 = rand.nextInt(27);
 			boardGrid.add(gp.getMc(), num1, num2);
-			System.out.println(boardGrid.getColumnCount() + "," + boardGrid.getRowCount());
 			int i = 0;
 			int num = 8;
 			enCount = num;
@@ -108,7 +106,6 @@ public class GameBoardController extends Thread {
 				boardGrid.add(gp.getRc().get(i), num1, num2);
 				i++;
 			}
-			System.out.println(boardGrid.getColumnCount() + "," + boardGrid.getRowCount());
 			count++;
 			totmCount = 16;
 			missleCount.setText(String.valueOf(totmCount));
@@ -119,6 +116,10 @@ public class GameBoardController extends Thread {
 			enCount = gp.getRc().size();
 			if ((enCount > 0) && (totmCount < enCount)) {
 				GameStats.setGS(lvl, sc, dCount);
+				lvl = 1;
+				sc = 0;
+				dCount = 0;
+				
 				try {
 					Parent root = FXMLLoader.load(getClass().getResource("../view/leaderBoard.fxml"));
 					Main.stage.setScene(new Scene(root, 800, 800));
@@ -155,7 +156,6 @@ public class GameBoardController extends Thread {
 						totmCount -= 1;
 						missleCount.setText(String.valueOf(totmCount));
 						dCount += 1;
-						System.out.println(enCount);
 						if ((enCount == 0) && (totmCount > 0)) {
 							lvl += 1;
 							level.setText(String.valueOf(lvl));
@@ -223,7 +223,6 @@ public class GameBoardController extends Thread {
 						score.setText(String.valueOf(sc));
 						totmCount -= 1;
 						missleCount.setText(String.valueOf(totmCount));
-						System.out.println(enCount);
 						if (enCount == 0 && totmCount > 0) {
 							lvl += 1;
 							level.setText(String.valueOf(lvl));
@@ -271,7 +270,7 @@ public class GameBoardController extends Thread {
 		}
 		else if ((event.getSource() == moveRight) && (count == 1)) {
 			num1 = GridPane.getColumnIndex(gp.getMc());
-			if (num1 < 35) {
+			if (num1 < 17) {
 				GridPane.setColumnIndex(gp.getMc(), num1+1);
 			}
 		}
