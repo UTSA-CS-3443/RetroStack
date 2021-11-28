@@ -15,7 +15,7 @@ public static Stage stage;
     public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("view/Intro.fxml"));
-			primaryStage.setScene(new Scene(root, 400, 600));
+			primaryStage.setScene(new Scene(root, 800, 800));
 			primaryStage.show();
 			
 			stage = primaryStage;
