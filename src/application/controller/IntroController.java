@@ -4,7 +4,6 @@
 package application.controller;
 
 import application.Main;
-import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

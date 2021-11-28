@@ -5,8 +5,8 @@ package application.controller;
 
 import application.Main;
 import application.model.GamePiece;
+import application.model.GameStats;
 import javafx.scene.shape.*;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 //import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -118,6 +118,7 @@ public class GameBoardController extends Thread {
 		else if ((event.getSource() == fire) && (count == 1) && (mCount == 0)) {
 			enCount = gp.getRc().size();
 			if ((enCount > 0) && (totmCount < enCount)) {
+				GameStats.setGS(lvl, sc, dCount);
 				try {
 					Parent root = FXMLLoader.load(getClass().getResource("../view/leaderBoard.fxml"));
 					Main.stage.setScene(new Scene(root, 800, 800));

@@ -4,14 +4,16 @@ public class GameStats {
 	private static int lvl;
 	private static int pts;
 	private static int enm;
+	
 	/**
 	 * 
 	 */
-	public GameStats(int level, int points, int enemies) {
+	public static void setGS(int level, int points, int enemies) {
 		lvl = level;
 		pts = points;
 		enm = enemies;
 	}
+	
 	/**
 	 * @return the lvl
 	 */
