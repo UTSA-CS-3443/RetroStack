@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.controller.GameRulesController">
+   <children>
+      <Pane prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: black;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="200.0" layoutX="5.0" layoutY="5.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="790.0" />
+            <Label layoutX="175.0" layoutY="45.0" text="Game Rules" textFill="WHITE">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+            <Button fx:id="GameBoard" layoutX="680.0" layoutY="745.0" mnemonicParsing="false" onAction="#handle" prefHeight="45.0" prefWidth="110.0" style="-fx-background-color: grey;" text="GameBoard" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="50.0" layoutX="165.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Label layoutX="20.0" layoutY="248.0" text="Hero Sprite:" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="341.0" text="Evil Sprite:" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="50.0" layoutX="140.0" layoutY="330.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Label layoutX="20.0" layoutY="420.0" text="Space Laser:" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="45.0" layoutX="167.0" layoutY="413.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+            <Label layoutX="20.0" layoutY="490.0" text="Game Summary:" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="label" layoutX="200.0" layoutY="496.0" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
