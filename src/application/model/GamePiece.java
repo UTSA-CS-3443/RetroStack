@@ -21,14 +21,14 @@ public class GamePiece {
 	
 	public void GP() {
 		mc = new Rectangle(20, 20);
-		color = Color.WHITE;
+		color = Color.BLUE;
 		this.mc.setFill(color);
 		//return mc;
 	}
 	
 	public void spaceMissle() {
 		missle = new Rectangle(20, 5);
-		color = Color.BLUE;
+		color = Color.WHITE;
 		this.missle.setFill(color);
 	}
 	
