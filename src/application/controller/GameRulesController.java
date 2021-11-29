@@ -39,7 +39,7 @@ public class GameRulesController implements EventHandler<ActionEvent>, Initializ
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		label.setText("You are the hero sprite tasked with saving your\nhome planet from the evil sprites.\nYou will be given a set number of space lasers\nto defend your home world.\nShould your space laser count fall\nbelow the number of enemies present on the battlefield\nyour home world will be lost.\n");
+		label.setText("You are the hero space craft tasked with saving your\nhome planet from the evil space crafts.\n\nYou will be given a set number of space lasers\nto defend your home world.\n\nShould your space laser count fall below the number\nof enemies present on the battlefield your home world\nwill be lost.\n");
 	}
 
 }

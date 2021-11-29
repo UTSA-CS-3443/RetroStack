@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.controller.GameRulesController">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.GameRulesController">
    <children>
       <Pane prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: black;">
          <children>
@@ -19,18 +18,18 @@
                </font>
             </Label>
             <Button fx:id="GameBoard" layoutX="680.0" layoutY="745.0" mnemonicParsing="false" onAction="#handle" prefHeight="45.0" prefWidth="110.0" style="-fx-background-color: grey;" text="GameBoard" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="50.0" layoutX="165.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-            <Label layoutX="20.0" layoutY="248.0" text="Hero Sprite:" textFill="WHITE">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="50.0" layoutX="214.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Label layoutX="20.0" layoutY="248.0" text="Hero Space Craft:" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="20.0" layoutY="341.0" text="Evil Sprite:" textFill="WHITE">
+            <Label layoutX="20.0" layoutY="341.0" text="Evil Space Craft:" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="50.0" layoutX="140.0" layoutY="330.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="50.0" layoutX="203.0" layoutY="330.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <Label layoutX="20.0" layoutY="420.0" text="Space Laser:" textFill="WHITE">
                <font>
                   <Font size="24.0" />
