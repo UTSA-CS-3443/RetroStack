@@ -7,6 +7,7 @@ import application.Main;
 import application.model.GamePiece;
 import application.model.GameStats;
 import javafx.scene.shape.*;
+import javafx.util.Duration;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 //import javafx.event.EventHandler;
@@ -133,6 +134,7 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 				lvl = 1;
 				sc = 0;
 				dCount = 0;
+				mediaPlayer.stop();
 				try {
 					Parent root = FXMLLoader.load(getClass().getResource("../view/leaderBoard.fxml"));
 					Main.stage.setScene(new Scene(root, 800, 800));
@@ -197,6 +199,7 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 								boardGrid.add(gp.getRc().get(i), num1, num2);
 								i++;
 							}
+							enemyCount.setText(String.valueOf(gp.getRc().size()));
 						}
 						break;
 					}
@@ -242,6 +245,7 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 						if (enCount == 0 && totmCount > 0) {
 							lvl += 1;
 							level.setText(String.valueOf(lvl));
+							
 							if (lvl == 2) {
 								totmCount = 14;
 							}
@@ -265,6 +269,7 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 								boardGrid.add(gp.getRc().get(i), num1, num2);
 								i++;
 							}
+							enemyCount.setText(String.valueOf(gp.getRc().size()));
 						}
 						else if ((enCount > 0) && (totmCount < enCount)) {
 							try {
@@ -313,10 +318,16 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		file = new File("data/bensound-endlessmotion.mp3");
+		file = new File("data/Analog_Boys_2.wav");
 		media = new Media(file.toURI().toString());
 		mediaPlayer = new MediaPlayer(media);
 		//mp3.setMediaPlayer(mediaPlayer);
+		mediaPlayer.setOnEndOfMedia(new Runnable() {
+			@Override
+	        public void run() {
+				mediaPlayer.seek(Duration.ZERO);
+	        }
+		});
 		mediaPlayer.play();
 	}
 }
