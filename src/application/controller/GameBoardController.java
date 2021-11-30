@@ -8,6 +8,7 @@ import application.model.GamePiece;
 import application.model.GameStats;
 import javafx.scene.shape.*;
 import javafx.util.Duration;
+import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 //import javafx.event.EventHandler;
@@ -150,6 +151,25 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 				boardGrid.add(gp.getMissle(), num1+1, num2);
 				num1 = GridPane.getColumnIndex(gp.getMissle());
 				mCount = 1;
+				/*AnimationTimer timer = new AnimationTimer() {
+					private long lastUpdate = 0;
+					@Override
+			        public void handle(long now) {
+						if (now - lastUpdate >= 100_000_000) {
+							lastUpdate = now;
+							int num1 = GridPane.getColumnIndex(gp.getMissle());
+							if (num1 == 35 && mCount == 1) {
+								update(2);
+								mCount = 0;
+								
+							}
+							else {
+								update(1);
+							}
+						}
+					}
+				};
+				timer.start();*/
 			}
 		}
 		else if ((event.getSource() == attack) && (count == 1) && (mCount == 1)) {
@@ -291,7 +311,7 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 		}
 		else if ((event.getSource() == moveRight) && (count == 1)) {
 			num1 = GridPane.getColumnIndex(gp.getMc());
-			if (num1 < 17) {
+			if (num1 < 35) {
 				GridPane.setColumnIndex(gp.getMc(), num1+1);
 			}
 		}
@@ -330,4 +350,138 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 		});
 		mediaPlayer.play();
 	}
+	
+	/*public void update(int num) {
+		Random rand = new Random();
+		int num1;
+		int num2;
+		enCount = gp.getRc().size();
+		if (num == 1) {
+			num1 = GridPane.getColumnIndex(gp.getMissle());
+			num2 = GridPane.getRowIndex(gp.getMissle());
+			int i = 0;
+			while (i < gp.getRc().size()) {
+				int num3 = GridPane.getColumnIndex(gp.getRc().get(i));
+				int num4 = GridPane.getRowIndex(gp.getRc().get(i));
+				enCount = gp.getRc().size();
+				if ((num1 == num3) && (num2 == num4)) {
+					boardGrid.getChildren().remove(gp.getMissle());
+					boardGrid.getChildren().remove(gp.getRc().get(i));
+					gp.getRc().remove(i);
+					mCount = 0;
+					dCount += 1;
+					enCount = gp.getRc().size();
+					sc += 25;
+					score.setText(String.valueOf(sc));
+					totmCount -= 1;
+					missleCount.setText(String.valueOf(totmCount));
+					enemyCount.setText(String.valueOf(gp.getRc().size()));
+					if (enCount == 0 && totmCount > 0) {
+						lvl += 1;
+						level.setText(String.valueOf(lvl));
+						
+						if (lvl == 2) {
+							totmCount = 14;
+						}
+						else if (lvl == 3) {
+							totmCount = 12;
+						}
+						else if (lvl == 4) {
+							totmCount = 10;
+						}
+						else if (lvl > 4) {
+							totmCount = 8;
+						}
+						missleCount.setText(String.valueOf(totmCount));
+						i = 0;
+						num = 8;
+						enCount = num;
+						gp.EGP();
+						while (i < num) {
+							num1 = rand.nextInt(36-18) + 18;
+							num2 = rand.nextInt(27);
+							boardGrid.add(gp.getRc().get(i), num1, num2);
+							i++;
+						}
+						enemyCount.setText(String.valueOf(gp.getRc().size()));
+					}
+					else if ((enCount > 0) && (totmCount < enCount)) {
+						try {
+							Parent root = FXMLLoader.load(getClass().getResource("../view/leaderBoard.fxml"));
+							Main.stage.setScene(new Scene(root, 800, 800));
+							Main.stage.show();
+						} catch(Exception e) {
+							e.printStackTrace();
+						}
+					}
+					break;
+				}
+				else {
+					GridPane.setColumnIndex(gp.getMissle(), num1+1);
+				}
+				i++;
+			}
+		}
+		else {
+			int i = 0;
+			num1 = GridPane.getColumnIndex(gp.getMissle());
+			num2 = GridPane.getRowIndex(gp.getMissle());
+			while (i < gp.getRc().size()) {
+				int num3 = GridPane.getColumnIndex(gp.getRc().get(i));
+				int num4 = GridPane.getRowIndex(gp.getRc().get(i));
+				if ((num1 == num3) && (num2 == num4)) {
+					boardGrid.getChildren().remove(gp.getMissle());
+					boardGrid.getChildren().remove(gp.getRc().get(i));
+					gp.getRc().remove(i);
+					mCount = 0;
+					enCount = gp.getRc().size();
+					sc += 25;
+					score.setText(String.valueOf(sc));
+					totmCount -= 1;
+					missleCount.setText(String.valueOf(totmCount));
+					enemyCount.setText(String.valueOf(gp.getRc().size()));
+					dCount += 1;
+					if ((enCount == 0) && (totmCount > 0)) {
+						lvl += 1;
+						level.setText(String.valueOf(lvl));
+						if (lvl == 2) {
+							totmCount = 14;
+						}
+						else if (lvl == 3) {
+							totmCount = 12;
+						}
+						else if (lvl == 4) {
+							totmCount = 10;
+						}
+						else if (lvl > 4) {
+							totmCount = 8;
+						}
+						missleCount.setText(String.valueOf(totmCount));
+						i = 0;
+						num = 8;
+						enCount = num;
+						gp.EGP();
+						while (i < num) {
+							num1 = rand.nextInt(36-18) + 18;
+							num2 = rand.nextInt(27);
+							boardGrid.add(gp.getRc().get(i), num1, num2);
+							i++;
+						}
+						enemyCount.setText(String.valueOf(gp.getRc().size()));
+					}
+					break;
+				}
+				else {
+					i++;
+					continue;
+				}
+			}
+			if (mCount == 1) {
+				boardGrid.getChildren().remove(gp.getMissle());
+				mCount = 0;
+				totmCount-=1;
+				missleCount.setText(String.valueOf(totmCount));
+			}
+		}
+	}*/
 }
