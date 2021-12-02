@@ -169,7 +169,10 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 						}
 					}
 				};
-				timer.start();*/
+				timer.start();
+				if (!(boardGrid.getChildren().contains(gp.getMissle()))) {
+					timer.stop();
+				}*/
 			}
 		}
 		else if ((event.getSource() == attack) && (count == 1) && (mCount == 1)) {
@@ -311,7 +314,7 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 		}
 		else if ((event.getSource() == moveRight) && (count == 1)) {
 			num1 = GridPane.getColumnIndex(gp.getMc());
-			if (num1 < 35) {
+			if (num1 < 17) {
 				GridPane.setColumnIndex(gp.getMc(), num1+1);
 			}
 		}
