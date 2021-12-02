@@ -8,7 +8,6 @@ import application.model.GamePiece;
 import application.model.GameStats;
 import javafx.scene.shape.*;
 import javafx.util.Duration;
-import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 //import javafx.event.EventHandler;
