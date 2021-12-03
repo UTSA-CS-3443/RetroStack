@@ -5,6 +5,8 @@ Project Name: RetroStack
 
 Team Name: Runtime Terror
 
+Clone: https://github.com/UTSA-CS-3443/RetroStack.git
+
 Team Members: Aidan Thomas, Drelon Perry, Michael Trujillo, Ruben Pena
 
 Description: This app is a space game where the user plays as a hero space craft that is tasked with defeating a platoon of evil space crafts and to advance you must eliminate all enamies.
