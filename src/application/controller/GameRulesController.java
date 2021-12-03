@@ -18,6 +18,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+/**
+ * @author aidanthomas
+ *
+ */
 public class GameRulesController implements EventHandler<ActionEvent>, Initializable{
 	
 	@FXML
