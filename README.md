@@ -3,8 +3,6 @@ Repo for team: Runtime Terror
 
 Project Name: RetroStack
 
-Team Name: Runtime Terror
-
 Team Members: Aidan Thomas, Drelon Perry, Michael Trujillo, Ruben Pena
 
 Run: src/application
