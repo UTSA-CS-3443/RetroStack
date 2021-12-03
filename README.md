@@ -7,7 +7,7 @@ Team Name: Runtime Terror
 
 Team Members: Aidan Thomas, Drelon Perry, Michael Trujillo, Ruben Pena
 
-Run: 
+Run: src/application
 
 Clone: https://github.com/UTSA-CS-3443/RetroStack.git
 
