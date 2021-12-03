@@ -15,7 +15,5 @@ Bugs: At the moment there are no bugs present in the App, although there is a se
 animates the movement of the space laser across the screen. The reason this section of the code is commented out is because the AnimationTimer doesn't work as desired and needs more fine tuning. 
 Until I figure out how to get the AnimationTimer to work as desired it will not be implemented in the app.
 
-SceneBuilder 2.0 was used
-
-JavaFX 3.7.0
+Tools: SceneBuilder 2.0, JavaFX 3.7.0, Eclipse IDE, and Java SE-9
 
