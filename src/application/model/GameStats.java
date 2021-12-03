@@ -4,6 +4,11 @@
  */
 package application.model;
 
+
+/**
+ * @author aidanthomas
+ *
+ */
 public class GameStats {
 	private static int lvl;
 	private static int pts;

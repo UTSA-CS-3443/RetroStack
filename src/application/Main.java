@@ -10,7 +10,10 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-
+/**
+ * @author aidanthomas
+ *
+ */
 public class Main extends Application {
 	
 public static Stage stage;
