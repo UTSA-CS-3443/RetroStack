@@ -1,5 +1,6 @@
 /**
- * 
+ * Final Project
+ * Team RetroStack
  */
 package application.controller;
 
@@ -20,7 +21,6 @@ import javafx.scene.control.Label;
 
 /**
  * @author aidanthomas
- *
  */
 public class LeaderBoardController implements EventHandler<ActionEvent>, Initializable {
 	
@@ -42,6 +42,7 @@ public class LeaderBoardController implements EventHandler<ActionEvent>, Initial
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		//sets the labels with the player stats
 		lvlLabel.setText(String.valueOf(GameStats.getLvl()));
 		scoreLabel.setText(String.valueOf(GameStats.getPts()));
 		edLabel.setText(String.valueOf(GameStats.getEnm()));
@@ -50,6 +51,7 @@ public class LeaderBoardController implements EventHandler<ActionEvent>, Initial
 	@Override
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
+		//checks to see if the user clicked the button
 		if (event.getSource() == returnHome) {
 			try {
 				Parent root = FXMLLoader.load(getClass().getResource("../view/Intro.fxml"));

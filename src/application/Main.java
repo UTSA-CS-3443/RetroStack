@@ -1,3 +1,7 @@
+/**
+ * Final Project
+ * Team RetroStack
+ */
 package application;
 	
 import javafx.application.Application;

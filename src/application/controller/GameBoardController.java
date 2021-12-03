@@ -1,5 +1,6 @@
 /**
- * 
+ * Final Project
+ * Team RetroStack
  */
 package application.controller;
 
@@ -33,6 +34,7 @@ import java.net.URL;
  *
  */
 public class GameBoardController implements EventHandler<ActionEvent>, Initializable{
+	
 	Color color;
 	int enCount = 0;
 	int mCount = 0;
@@ -96,6 +98,7 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 		Random rand = new Random();
 		int num1;
 		int num2;
+		//checks to see if a button was clicked
 		if (event.getSource() == leaderBoard) { //checks to see if the user clicks the home button
 			/*try {
 				Parent root = FXMLLoader.load(getClass().getResource("../view/leaderBoard.fxml"));
@@ -105,6 +108,7 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 				e.printStackTrace();
 			}*/
 		}
+		//stars game and places game pieces on the game board
 		else if ((event.getSource() == startGame) && (count < 1)) {
 			gp.GP();
 			num1 = rand.nextInt(17);
@@ -127,13 +131,16 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 			score.setText(String.valueOf(sc));
 			enemyCount.setText(String.valueOf(gp.getRc().size()));
 		}
+		//creates a space laser
 		else if ((event.getSource() == fire) && (count == 1) && (mCount == 0)) {
 			enCount = gp.getRc().size();
+			//checks to see if there are more enemies then space lasers
 			if ((enCount > 0) && (totmCount < enCount)) {
 				GameStats.setGS(lvl-1, sc, dCount);
 				lvl = 1;
 				sc = 0;
 				dCount = 0;
+				//stops music
 				mediaPlayer.stop();
 				try {
 					Parent root = FXMLLoader.load(getClass().getResource("../view/leaderBoard.fxml"));
@@ -174,10 +181,12 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 				}*/
 			}
 		}
+		//moves space laser across the screen and destroys enamies if hit
 		else if ((event.getSource() == attack) && (count == 1) && (mCount == 1)) {
 			num1 = GridPane.getColumnIndex(gp.getMissle());
 			num2 = GridPane.getRowIndex(gp.getMissle());
 			enCount = gp.getRc().size();
+			//checks to see if space laser is at the edge of the game board
 			if (num1 == 35) {
 				int i = 0;
 				while (i < gp.getRc().size()) {
@@ -246,6 +255,7 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 					e.printStackTrace();
 				}
 			}
+			//checks to see if the space laser makes contact with an enemy space craft
 			else {
 				int i = 0;
 				while (i < gp.getRc().size()) {
@@ -311,24 +321,28 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 				}
 			}
 		}
+		//moves user game piece right
 		else if ((event.getSource() == moveRight) && (count == 1)) {
 			num1 = GridPane.getColumnIndex(gp.getMc());
 			if (num1 < 17) {
 				GridPane.setColumnIndex(gp.getMc(), num1+1);
 			}
 		}
+		//moves user game piece left
 		else if ((event.getSource() == moveLeft) && (count == 1)) {
 			num1 = GridPane.getColumnIndex(gp.getMc());
 			if (num1 > 0) {
 				GridPane.setColumnIndex(gp.getMc(), num1-1);
 			}
 		}
+		//moves user game piece up
 		else if ((event.getSource() == moveUp) && (count == 1)) {
 			num2 = GridPane.getRowIndex(gp.getMc());
 			if (num2 > 0) {
 				GridPane.setRowIndex(gp.getMc(), num2-1);
 			}
 		}
+		//moves user game piece down
 		else if ((event.getSource() == moveDown) && (count == 1)) {
 			num2 = GridPane.getRowIndex(gp.getMc());
 			if (num2 < 26) {
@@ -337,6 +351,7 @@ public class GameBoardController implements EventHandler<ActionEvent>, Initializ
 		}
 	}
 
+	//plays the music on the game screen
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub

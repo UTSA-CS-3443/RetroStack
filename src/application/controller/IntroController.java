@@ -1,5 +1,6 @@
 /**
- * 
+ * Final Project
+ * Team RetroStack
  */
 package application.controller;
 
@@ -53,6 +54,7 @@ public class IntroController implements EventHandler<ActionEvent>{
 	private Label t10;
 	
 	public void handle(ActionEvent event) {
+		//checks to see if the user clicks a button
 		if (event.getSource() == Start) { //checks to see if the user clicks the home button
 			try {
 				Parent root = FXMLLoader.load(getClass().getResource("../view/GameRules.fxml"));

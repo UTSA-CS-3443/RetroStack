@@ -1,3 +1,7 @@
+/**
+ * Final Project
+ * Team RetroStack
+ */
 package application.model;
 
 public class GameStats {
@@ -6,7 +10,7 @@ public class GameStats {
 	private static int enm;
 	
 	/**
-	 * 
+	 * sets the users game stats
 	 */
 	public static void setGS(int level, int points, int enemies) {
 		lvl = level;

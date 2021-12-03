@@ -1,5 +1,6 @@
 /**
- * 
+ * Final Project
+ * Team RetroStack
  */
 package application.model;
 
@@ -10,7 +11,6 @@ import javafx.scene.shape.Rectangle;
 
 /**
  * @author aidanthomas
- *
  */
 public class GamePiece {
 	ArrayList<Rectangle> rc = new ArrayList<Rectangle>();
@@ -19,6 +19,7 @@ public class GamePiece {
 	Rectangle em;
 	Color color;
 	
+	//creates the users game piece
 	public void GP() {
 		mc = new Rectangle(20, 20);
 		color = Color.BLUE;
@@ -26,15 +27,18 @@ public class GamePiece {
 		//return mc;
 	}
 	
+	//creates the users space laser
 	public void spaceMissle() {
 		missle = new Rectangle(20, 5);
 		color = Color.WHITE;
 		this.missle.setFill(color);
 	}
 	
+	//creates the evil space crafts
 	public void EGP() {
 		int i = 0;
 		int num = 8;
+		//used to create 8 evil space crafts
 		while (i < num) {
 			em = new Rectangle(20, 20);
 			color = Color.RED;
@@ -44,6 +48,7 @@ public class GamePiece {
 		}
 	}
 	
+	//used to add rectangles to the ArrayList
 	public void addRc(Rectangle rcP) {
 		rc.add(rcP);
 	}
